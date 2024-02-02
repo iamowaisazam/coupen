@@ -3,8 +3,34 @@
     $azArray = array();
   for ($i = 97; $i <= 122; $i++) {
       $azArray[chr($i)] = "Value " . chr($i);
-
   }
+
+  // dd($sessionId = session()->getId());
+
+  $arrays = Session::get('views') ? Session::get('views') : [];
+  $views = $data->views;
+
+  
+
+
+  // dd($arrays);
+  // Session::put('views', 'value');
+
+  if(!in_array($data->id,$arrays)){
+
+      array_push($arrays,$data->id);
+      Session::put('views',$arrays);
+
+
+     
+      $views = $views + 1;
+     \App\Models\Store::where('id',$data->id)->update(['views' =>  $views]);
+    
+  }
+
+  
+
+  
 @endphp
 
 @section('metatags')
@@ -58,7 +84,10 @@
                   </a>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
+                  <p> <span style="font-weight: 600;" >Type:</span>  <span >{{ ucwords(str_ireplace("_", " ",$data->heading))}}</span> </p>
+                  <p> <span style="font-weight: 600;"  >Views:</span> <span>{{$views}}</span> </p>
                   <p style="padding-bottom: 5px" >{{$data->short_des}}</p>
+                 
                   <a target="_blank" href="{{$data->direct_url}}" target="_blank" >
                     <div class="property_meta margin-t-2 bg-black bottom40" style="width: 40%;">
                       <span><i class="fa fa-arrow-right"></i>VISIT STORE</span>

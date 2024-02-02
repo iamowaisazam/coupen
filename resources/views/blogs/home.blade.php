@@ -48,7 +48,7 @@ $bg = asset('admin/uploads/'.$global_d['blog_banner']);
 
         <div class="row">
             <div class="col-md-12 bottom40" style="margin-top: 40px;">
-                <h2 class="text-uppercase">FEATURED BLOGS 1</h2>
+                <h2 class="text-uppercase">SAVE SUM MORE</h2>
                 <div class="line_1"></div>
                 <div class="line_2"></div>
                 <div class="line_3"></div>
@@ -76,7 +76,7 @@ $bg = asset('admin/uploads/'.$global_d['blog_banner']);
 
         <div class="row">
           <div class="col-md-12 bottom40" style="margin-top: 40px;">
-              <h2 class="text-uppercase">FEATURED BLOGS 2</h2>
+              <h2 class="text-uppercase">FEATURED BLOGS</h2>
               <div class="line_1"></div>
               <div class="line_2"></div>
               <div class="line_3"></div>
@@ -104,7 +104,7 @@ $bg = asset('admin/uploads/'.$global_d['blog_banner']);
 
       <div class="row">
         <div class="col-md-12 bottom40" style="margin-top: 40px;">
-            <h2 class="text-uppercase">FEATURED BLOGS 3</h2>
+            <h2 class="text-uppercase">MOST POPULAR BLOGS</h2>
             <div class="line_1"></div>
             <div class="line_2"></div>
             <div class="line_3"></div>

@@ -21,6 +21,54 @@ class HomeController extends Controller
         // $this->middleware('auth');
     }
 
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function about()
+    {
+        
+       
+        return view('about');
+    }
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function contact()
+    {
+        
+       
+        return view('about');
+    }
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function privacy_policy()
+    {
+        
+       
+        return view('privacy_policy');
+    }
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function terms_condition()
+    {
+        
+       
+        return view('terms_condition');
+    }
+
 
     /**
      * Show the application dashboard.

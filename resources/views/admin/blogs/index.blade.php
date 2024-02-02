@@ -71,9 +71,9 @@
                         <th>Image</th>
                         <th>Title</th>
                         <th>Category</th>
-                        <th>Featured 1</th>
-                        <th>Featured 2</th>
-                        <th>Featured 3</th>
+                        <th>SAVE SUM MORE</th>
+                        <th>Featured</th>
+                        <th>POPULAR</th>
                     </tr>
                 </thead>
                 <tbody>

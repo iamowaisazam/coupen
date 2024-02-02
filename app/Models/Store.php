@@ -26,6 +26,7 @@ class Store extends Model
         'long_des',
         'image',
         'alt',
+        'views',
         'meta_title',
         'meta_description',
         'meta_keywords',

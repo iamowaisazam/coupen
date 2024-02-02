@@ -19,6 +19,11 @@ Route::get('/',function(){
 });
 
 
+Route::get('/about', [App\Http\Controllers\HomeController::class, 'about'])->name('about');
+Route::get('/contact', [App\Http\Controllers\HomeController::class, 'contact'])->name('contact');
+Route::get('/privacy-policy', [App\Http\Controllers\HomeController::class, 'privacy_policy'])->name('privacy_policy');
+Route::get('/terms-condition', [App\Http\Controllers\HomeController::class, 'terms_condition'])->name('terms_condition');
+
 //Blogs
 Route::get('/', [App\Http\Controllers\HomeController::class, 'home'])->name('home');
 Route::get('/blogs', [App\Http\Controllers\HomeController::class, 'blogs']);

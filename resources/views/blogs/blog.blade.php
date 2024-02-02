@@ -19,7 +19,7 @@
         }
 
         .blog_image{
-          width: 600px;
+          /* width: 600px; */
       }
 
       .content{
@@ -60,8 +60,11 @@
       <div class="col-md-12">
         <div class="row">
           <div class="news-1-box margin_bottom  clearfix">
-            <div class="col-md-12 col-sm-12 col-xs-12">
-              <img  src="{{asset('/admin/uploads/'.$blog->image)}}" alt="{{$blog->alt}}" class="blog_image img-responsive">
+            <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+              <img  src="{{asset('/admin/uploads/'.$blog->image)}}" 
+              alt="{{$blog->alt}}" 
+              style="margin: auto"
+              class="m-auto blog_image img-responsive" />
             </div>
             <div class="col-md-12 col-sm-12 col-xs-12">  
               <div class="content pt-5">

@@ -124,8 +124,8 @@
                         </div>
                         <ul class="list angle-double-right list-border">
                         <li> <a href="{{URL::to('/')}}">Home </a></li>
-                        <li> <a href="#.">About </a></li>
-                        <li> <a href="#.">Privacy Policy</a></li>
+                        <li> <a href="{{URL::to('/about')}}">About </a></li>
+                        <li> <a href="{{URL::to('/privacy-policy')}}">Privacy Policy</a></li>
                         </ul>
                     </div>
                 </div>
@@ -139,8 +139,8 @@
                         </div>
                         <ul class="list list-border">
                         <li><a href="{{URL::to('/promotions')}}">Promotions</a></li>
-                        <li><a href="#.">Terms &amp; conditions</a></li>
-                        <li><a href="#.">Contact Us</a></li>
+                        <li><a href="{{URL::to('/terms-condition')}}">Terms &amp; conditions</a></li>
+                        <li><a href="{{URL::to('/contact')}}">Contact Us</a></li>
                         </ul>
                     </div>
                 </div>

@@ -43,8 +43,9 @@
                                       type="text" 
                                       value="{{$item->value}}"  
                                       placeholder="{{ ucwords(str_ireplace("_", " ",$item->field))}}" 
-                                      name="[fields][{{$key}}]{{$item->field}}" >
-                                            
+                                      name="{{$item->field}}[value]" >
+                                      <input type="hidden" name="{{$item->field}}[type]"
+                                      value="{{$item->type}}" >
                                 </div>
                             </div>
                             @break
@@ -122,6 +123,9 @@
     jQuery(document).ready(function(){
 
         $('.summernote').summernote({
+           
+          fontSizes: ['8', '9', '10', '11', '12', '14', '18', '24', '36'],  // Specify the available font sizes
+
             height: 200,                 // set editor height
 
             minHeight: null,             // set minimum height of editor

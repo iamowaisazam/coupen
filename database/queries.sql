@@ -21,3 +21,6 @@ ADD `featured2` INT NULL DEFAULT '0' AFTER `featured1`,
 ADD `featured3` INT NULL DEFAULT '0' AFTER `featured2`;
 ALTER TABLE `coupons` ADD `image` TEXT NULL DEFAULT NULL AFTER `sort`;
 ALTER TABLE `coupons` ADD `alt` TEXT NULL DEFAULT NULL AFTER `sort`;
+
+-- __________________________________________________________________________________
+ALTER TABLE `stores` ADD `views` INT NULL DEFAULT '0' AFTER `alt`;
