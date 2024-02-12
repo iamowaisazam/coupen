@@ -24,3 +24,4 @@ ALTER TABLE `coupons` ADD `alt` TEXT NULL DEFAULT NULL AFTER `sort`;
 
 -- __________________________________________________________________________________
 ALTER TABLE `stores` ADD `views` INT NULL DEFAULT '0' AFTER `alt`;
+
