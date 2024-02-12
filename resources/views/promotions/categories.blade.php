@@ -4,7 +4,7 @@
     $bg = asset('admin/uploads/'.$global_d['store_banner']);
     $azArray = array();
     for ($i = 97; $i <= 122; $i++) {
-        $azArray[chr($i)] = "Value " . chr($i);
+        array_push($azArray ,chr($i));
     }
 @endphp
 
@@ -99,11 +99,15 @@
             </div>
         </div>
 
-        <div class="row">
+       
 
-            @for($i = 97; $i <= 122; $i++)
+          @foreach (array_chunk($azArray,3) as $chunk)
+          <div class="row">
+          @foreach ($chunk as $char)
+
+          
                 <?php 
-                   $char = chr($i); 
+                
                    $result = \App\Models\StoreCategory::where('title', 'like', $char.'%')->get();
                 ?>
            
@@ -126,9 +130,10 @@
                         </ul>
                     </div>
                 </div>
-            @endfor
+            @endforeach
 
         </div>
+        @endforeach
     </div>
 </section>
 @endsection

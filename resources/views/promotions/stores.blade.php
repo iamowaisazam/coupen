@@ -2,10 +2,13 @@
 
 @php
     $bg = asset('admin/uploads/'.$global_d['store_banner']);
+  
     $azArray = array();
     for ($i = 97; $i <= 122; $i++) {
-        $azArray[chr($i)] = "Value " . chr($i);
+        array_push($azArray ,chr($i));
     }
+
+    // dd(array_chunk($azArray,3));
 @endphp
 
 @section('metatags')
@@ -54,6 +57,14 @@
         color:#ed2a28!important;
     }
 
+    .no_record_found a{
+            padding: 15px 0;
+            display: block;
+            border-bottom: none!important;
+            border-radius: 0px;
+        
+    }
+
 </style>
 @endsection
 
@@ -90,15 +101,19 @@
           </div>
       </div>
 
+       @foreach (array_chunk($azArray,3) as $chunk)
+                   
         <div class="row">
-        
-            @for($i = 97; $i <= 122; $i++)
+            @foreach ($chunk as $char)
+                
+          
+          
                 <?php 
-                   $char = chr($i); 
+                //    $char = chr($i); 
                          $result = \App\Models\Store::where('title', 'like', $char.'%')->get();
                 ?>
            
-                <div class="col-md-4 col-sm-3 col-xs-12">
+                <div class="col-md-4 col-sm-12 ">
                     <div class="profile-list">
                         <ul>
                             <li class="active">
@@ -111,14 +126,21 @@
                                 </li>
                             @endforeach
                             @else
+                            {{-- <li class="no_record_found" >
+                                <a href="#">No Record Found</a>
+                            </li> --}}
                             <p style="padding-top: 20px" class="text-center" >Not Record Found</p>
                             @endif
                         </ul>
                     </div>
                 </div>
-            @endfor
 
-        </div>
+                @endforeach
+
+            </div>
+            @endforeach
+        
+        
     </div>
 </section>
 @endsection
