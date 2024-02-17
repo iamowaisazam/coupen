@@ -22,10 +22,24 @@
                     </div>
 
                     <div class="button" style="padding-top: 10px" >
-                        <a class="btn btn-danger" href="{{URL::to('/promotions/stores/')}}/{{$data->slug}}" target="_blank">VISIT STORE</a>
+                        <a class="btn btn-danger" href="{{$data->tracking_link}}" target="_blank">VISIT STORE</a>
                     </div>
                     <hr>
+                    
+                    @if($data->type == 'code')
+                    <div class="clipboard" >
+                        <button style="background: #d9534f;
+                        color: white;
+                        border-radius: 4px;
+                        padding: 6px;
+                        margin-bottom: 7px;"  class="copyButton">Click Here To Copy Code</button>
+                        <h3 class="codeSnippet code" >{{$data->code}}</h3>
+                    </div>
+                    
+                    @else
                     <h3>No Code Required</h3>
+                    @endif
+                    
                     <hr>
                     <div class="button" style="padding-top: 10px" >
                         <a class="btn btn-danger" href="{{$data->tracking_link}}" 

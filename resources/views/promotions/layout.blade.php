@@ -145,7 +145,7 @@
                 <a href="{{URL::to('promotions/categories')}}" data-toggle="">Categories</a>
               </li>
               <li class="dropdown">
-                <a href="{{URL::to('promotions/about-us')}}" data-toggle="">About Us</a>
+                <a href="{{URL::to('/about')}}" data-toggle="">About Us</a>
               </li>
 
               <li class="search-menu">

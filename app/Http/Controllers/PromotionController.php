@@ -130,6 +130,7 @@ class PromotionController extends Controller
         ])
         ->join('stores','stores.id','=','coupons.store_id')
         ->where('coupons.store_id',$data->id)
+        ->orderBy('coupons.sort')
         ->paginate(6);
         
         return view('promotions.store',compact('data','related','coupons'));

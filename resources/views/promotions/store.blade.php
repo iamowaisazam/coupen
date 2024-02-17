@@ -162,15 +162,14 @@
 
                   <div class="property_item heading_space">
                         <div class="image">
-                          <img style="width:100%" src="{{asset('admin/uploads/'.$coupon->image)}}" alt="listin" class="img-responsive">    
+                          <img style="width:100%" src="{{asset('admin/uploads/'.$coupon->image)}}" alt="listin" class="img-responsive">   
                         </div>
                         <div class="proerty_content">
                           <div class="proerty_text">
-                            <h3><a >{{$coupon->offer_name}}</a></h3>
+                            <h3><a>{{$coupon->offer_name}}</a></h3>
                             <span class="bottom10">Expiry Date: {{$coupon->expiry}}</span>
-                          
                           </div>
-                          <div data-toggle="modal" data-target="#myModal{{$coupon->id}}" class="favroute clearfix" style="cursor: pointer;background-color: #ed2a28;">
+                          <div data-link="{{$coupon->tracking_link}}" data-toggle="modal" data-target="#myModal{{$coupon->id}}" class="redirect_link favroute clearfix" style="cursor: pointer;background-color: #ed2a28;">
                             <p class="pull-left" style="color:#fff; font-size: 16px; font-weight: 700;">Copy Code &amp; visit Store</p>
                           
                           </div>
@@ -213,5 +212,50 @@
 
 
 
+
+@endsection
+
+
+
+@section('js')
+
+<script>
+  $('.redirect_link').click(function(){
+
+    navigator.clipboard.writeText("owais")
+            .then((r) => {
+                console.log(r)
+            })
+            .catch(err => {
+                console.error('Unable to copy text to clipboard', err);
+     });
+
+     var link = $(this).data("link");
+      window.open(link, '_blank');
+
+
+  });
+
+
+  document.addEventListener('DOMContentLoaded', function () {
+
+            $(".clipboard .copyButton").click(function(){
+            
+                var copyButton = $(this);
+                var codeText = copyButton.parent().find('.code');
+                navigator.clipboard.writeText(codeText.text())
+                    .then(() => {
+                        copyButton.text('Code Copied!');
+                        setTimeout(function () {
+                          copyButton.text('Click Here To Copy Code');
+                        }, 2000);
+                    })
+                    .catch(err => {
+                        console.error('Unable to copy text to clipboard', err);
+                    });
+            });
+
+  });
+</script>
 
 @endsection
