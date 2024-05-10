@@ -81,7 +81,7 @@
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-sm btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action</button>
                                     <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 31px, 0px);">
-                                        <a class="dropdown-item" href="{{URL::to('admin/coupons/edit/'.Crypt::encryptString($item->id))}}">Edit</a>
+                                        <a class="dropdown-item" target='_blank' href="{{URL::to('admin/coupons/edit/'.Crypt::encryptString($item->id))}}">Edit</a>
                                         <a class="dropdown-item" href="{{URL::to('admin/coupons/delete/'.Crypt::encryptString($item->id))}}">Delete</a>
                                     </div>
                                 </div>

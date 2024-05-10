@@ -41,7 +41,19 @@
 
 @section('css')
   <style>
+.image_popup {
+    height: 10%;
+    width: 65%;
+    padding-bottom:20px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /
+    border-radius: 8px;
+    transition: transform 0.3s ease; 
+}
 
+.image_popup {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
       .latest_page_box img{
           width: 100%;
       }
@@ -133,11 +145,11 @@
           <div class="col-xs-12 col-sm-8 col-md-8 property-list-list-info">
                 <div style="padding-bottom: 10px" class="col-xs-12 col-sm-12 col-md-12">
                   <a href="{{URL::to('/promotions/stores/')}}/{{$data->slug}}">
-                    <h3>{{$data->title}}</h3>
+                    <h3>{{$data->title}} ({{ ucwords(str_ireplace("_", " ",$data->heading))}})</h3>  
                   </a>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
-                  <p> <span style="font-weight: 600;" >Type:</span>  <span >{{ ucwords(str_ireplace("_", " ",$data->heading))}}</span> </p>
+                  <p> <span style="font-weight: 600;" >Date:</span>  <span >{{ date('d F Y', strtotime($data->created_at)) }}</span> </p>
                   <p> <span style="font-weight: 600;"  >Views:</span> <span>{{$views}}</span> </p>
                   <p style="padding-bottom: 5px" >{{$data->short_des}}</p>
                  
@@ -162,22 +174,21 @@
 
                   <div class="property_item heading_space">
                         <div class="image">
-                          <img style="width:100%" src="{{asset('admin/uploads/'.$coupon->image)}}" alt="listin" class="img-responsive">   
+                          <img style="width:100%" src="{{asset('admin/uploads/'.$data->image)}}" alt="listin" class="img-responsive">   
                         </div>
                         <div class="proerty_content">
                           <div class="proerty_text">
                             <h3><a>{{$coupon->offer_name}}</a></h3>
                             <span class="bottom10">Expiry Date: {{$coupon->expiry}}</span>
                           </div>
-                          <div data-link="{{$coupon->tracking_link}}" data-toggle="modal" data-target="#myModal{{$coupon->id}}" class="redirect_link favroute clearfix" style="cursor: pointer;background-color: #ed2a28;">
-                            <p class="pull-left" style="color:#fff; font-size: 16px; font-weight: 700;">Copy Code &amp; visit Store</p>
-                          
-                          </div>
+                          <div data-link="{{$coupon->tracking_link}}" data-toggle="modal" data-target="#myModal{{$coupon->id}}" data-code="{{ $coupon->code }}" class="redirect_link favroute clearfix" style="cursor: pointer;background-color: #ed2a28;">
+                            <p class="pull-left" style="color:#fff; font-size: 16px; font-weight: 700;">Copy Code &amp; visit Store </p>
+                        </div>
                         </div>
                   </div>
 
 
-                  @component('promotions.components.coupen',['data' => $coupon]) @endcomponent
+                  @component('promotions.components.coupen',['data' => $coupon,'mainData'=> $data]) @endcomponent
                 </div>
               </div>
               @endforeach   
@@ -221,10 +232,10 @@
 
 <script>
   $('.redirect_link').click(function(){
-
-    navigator.clipboard.writeText("owais")
+    var code = event.currentTarget.dataset.code;
+    navigator.clipboard.writeText(code)
             .then((r) => {
-                console.log(r)
+                // console.log(r)
             })
             .catch(err => {
                 console.error('Unable to copy text to clipboard', err);

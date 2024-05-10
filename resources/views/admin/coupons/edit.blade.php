@@ -45,7 +45,7 @@
                          <div class="col-md-6">
                             <div class="form-group">
                                 <label>Offer Box</label>
-                                <input type="text" value="{{$module->offer_box}}" class="form-control" placeholder="Offer Name" name="offer_box" >
+                                <input type="text" value="{{$module->offer_box}}" class="form-control" disabled placeholder="Offer Name" name="offer_box" >
                                 @if($errors->has('offer_box'))
                                  <p class="error" >{{ $errors->first('offer_box') }}</p>
                                  @endif          
@@ -55,7 +55,7 @@
                          <div class="col-md-6">
                             <div class="form-group">
                                 <label>Offer Details</label>
-                                <input type="text" value="{{$module->offer_details}}" class="form-control" placeholder="Offer Details" name="offer_details" >
+                                <input type="text" value="{{$module->offer_details}}" class="form-control" disabled placeholder="Offer Details" name="offer_details" >
                                 @if($errors->has('offer_details'))
                                  <p class="error" >{{ $errors->first('offer_details') }}</p>
                                  @endif          
@@ -133,7 +133,7 @@
                             </div>
                          </div>
 
-                         <div class="col-md-6">
+                         {{-- <div class="col-md-6">
                             <div class="form-group">
                                 <label>Image</label>
                                 <div class="col-lg-12">
@@ -148,7 +148,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
 
                         <div class="col-md-6">
                             <div class="form-group">
@@ -203,6 +203,17 @@
 
     });
 
+
+    var offerNameInput = document.getElementsByName('offer_name')[0];
+    var offerBoxInput = document.getElementsByName('offer_box')[0];
+    var offerDetailsInput = document.getElementsByName('offer_details')[0];
+
+    function updateInputs(){
+        var offerNameValue = offerNameInput.value;
+        offerBoxInput.value = offerNameValue;
+        offerDetailsInput.value = offerNameValue;
+    }
+    offerNameInput.addEventListener('input',updateInputs);
 </script>
     
 @endsection

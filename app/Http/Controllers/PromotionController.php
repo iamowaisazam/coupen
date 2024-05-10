@@ -53,6 +53,7 @@ class PromotionController extends Controller
             'coupons.*',
             'stores.slug',
             'stores.title',
+            'stores.image'
         ])
         ->join('stores','stores.id','=','coupons.store_id')
         ->get();
@@ -76,6 +77,7 @@ class PromotionController extends Controller
             'coupons.*',
             'stores.slug',
             'stores.title',
+            
         ])
         ->join('stores','stores.id','=','coupons.store_id')
         ->get();

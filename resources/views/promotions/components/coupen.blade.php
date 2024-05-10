@@ -7,7 +7,7 @@
 
             <!-- Modal Header -->
             <div class="modal-header">
-                <h4 class="modal-title">{{$data->offer_box}}</h4>
+                {{-- <h4 class="modal-title">{{$data->offer_box}}</h4> --}}
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
 
@@ -18,10 +18,12 @@
                     padding-bottom: 15px;" 
                     class="padding-top-20">{{$data->offer_name}}</h3>
                     <div class="block">
-                        <img style="width: 100%;" src="{{asset('admin/uploads/'.$data->image)}}" alt="" srcset="" />
+                        @if(isset($mainData))
+                        <img class="image_popup" src="{{asset('admin/uploads/'.$mainData->image)}}" alt="" srcset="" />
+                    @endif
                     </div>
 
-                    <div class="button" style="padding-top: 10px" >
+                    <div class="button" style="padding-top: 20px" >
                         <a class="btn btn-danger" href="{{$data->tracking_link}}" target="_blank">VISIT STORE</a>
                     </div>
                     <hr>

@@ -104,8 +104,8 @@
           <img src="{{asset('web/images/logo-white.png')}}" alt="logo"></a></div>
         <div class="col-md-10 col-sm-12 col-xs-12">
           <div class="get-tuch text-left top20">
-            <i class="icon-telephone114"></i>
-            <ul>
+            {{-- <i class="icon-telephone114"></i> --}}
+            {{-- <ul>
               <li><h4>Phone Number</h4></li>
               <li><p>{{$global_d['phone_number'] ?? ''}}</p></li>
             </ul>
@@ -117,7 +117,7 @@
             <ul>
               <li><h4>Email Address</h4></li>
               <li><p><a href="#">{{$global_d['email_address'] ?? ''}}</a></p></li>
-            </ul>
+            </ul> --}}
           </div>
         </div>
       </div>
@@ -224,11 +224,11 @@
                       @endif
 
                       @if($global_d['youtube_link'])
-                      <li><a target="_blank" href="{{$global_d['youtube_link']}}"><i class="fa fa-twitter"></i></a></li>
+                      {{-- <li><a target="_blank" href="{{$global_d['youtube_link']}}"><i class="fa fa-twitter"></i></a></li> --}}
                       @endif
                        
                       @if($global_d['twitter_link'])
-                      <li><a target="_blank" href="{{$global_d['twitter_link']}}"><i class="fa fa-youtube"></i></a></li>
+                      {{-- <li><a target="_blank" href="{{$global_d['twitter_link']}}"><i class="fa fa-youtube"></i></a></li> --}}
                       @endif
                     
 

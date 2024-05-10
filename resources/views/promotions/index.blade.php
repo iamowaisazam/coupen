@@ -61,7 +61,7 @@
         </div>
         <div class="row">
             @foreach ($data as $item)
-       
+
             {{-- {{URL::to('/promotions/stores/')}}/{{$data->slug}} --}}
             <div class="col-md-4">
                 <div   class="latest_page_box">

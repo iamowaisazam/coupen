@@ -35,7 +35,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Offer Name</label>
-                                <input type="text" value="{{old('offer_name')}}" class="form-control" placeholder="Offer Name" name="offer_name" >
+                                <input type="text" value="{{old('offer_name')}}" class="form-control" placeholder="Offer Name"  name="offer_name" >
                                 @if($errors->has('offer_name'))
                                  <p class="error" >{{ $errors->first('offer_name') }}</p>
                                  @endif          
@@ -45,7 +45,7 @@
                          <div class="col-md-6">
                             <div class="form-group">
                                 <label>Offer Box</label>
-                                <input type="text" value="{{old('offer_box')}}" class="form-control" placeholder="Offer Name" name="offer_box" >
+                                <input type="text" value="{{old('offer_box')}}" class="form-control" placeholder="Offer Name" disabled name="offer_box" >
                                 @if($errors->has('offer_box'))
                                  <p class="error" >{{ $errors->first('offer_box') }}</p>
                                  @endif          
@@ -55,7 +55,7 @@
                          <div class="col-md-6">
                             <div class="form-group">
                                 <label>Offer Details</label>
-                                <input type="text" value="{{old('offer_details')}}" class="form-control" placeholder="Offer Details" name="offer_details" >
+                                <input type="text" value="{{old('offer_details')}}" class="form-control" placeholder="Offer Details" disabled name="offer_details" >
                                 @if($errors->has('offer_details'))
                                  <p class="error" >{{ $errors->first('offer_details') }}</p>
                                  @endif          
@@ -116,7 +116,7 @@
                             </div>
                          </div>
 
-                         <div class="col-md-6">
+                         {{-- <div class="col-md-6">
                             <div class="form-group">
                                 <label>Image</label>
                                 <div class="col-lg-12">
@@ -128,9 +128,9 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
 
-                        <div class="col-md-6">
+                        {{-- <div class="col-md-6">
                             <div class="form-group">
                                 <label>Image Alt</label>
                                 <input type="text"  value="{{old('alt')}}" class="form-control" placeholder="Image Alt" name="alt" >
@@ -138,7 +138,7 @@
                                  <p class="error" >{{ $errors->first('alt') }}</p>
                                  @endif          
                             </div>
-                         </div>
+                         </div> --}}
 
         
                         <div class="col-md-12 text-center pt-5">
@@ -177,6 +177,16 @@
 
     });
 
+    var offerNameInput = document.getElementsByName('offer_name')[0];
+    var offerBoxInput = document.getElementsByName('offer_box')[0];
+    var offerDetailsInput = document.getElementsByName('offer_details')[0];
+
+    function updateInputs(){
+        var offerNameValue = offerNameInput.value;
+        offerBoxInput.value = offerNameValue;
+        offerDetailsInput.value = offerNameValue;
+    }
+    offerNameInput.addEventListener('input',updateInputs);
 </script>
     
 @endsection
