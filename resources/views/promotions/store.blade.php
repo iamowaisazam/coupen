@@ -182,7 +182,11 @@
                             <span class="bottom10">Expiry Date: {{$coupon->expiry}}</span>
                           </div>
                           <div data-link="{{$coupon->tracking_link}}" data-toggle="modal" data-target="#myModal{{$coupon->id}}" data-code="{{ $coupon->code }}" class="redirect_link favroute clearfix" style="cursor: pointer;background-color: #ed2a28;">
-                            <p class="pull-left" style="color:#fff; font-size: 16px; font-weight: 700;">Copy Code &amp; visit Store </p>
+                            @if($coupon->type == 'code')
+                              <p class="pull-left" style="color:#fff; font-size: 16px; font-weight: 700;">Copy Code &amp; visit Store </p>
+                            @else
+                              <p class="pull-left" style="color:#fff; font-size: 16px; font-weight: 700;">Get Offer</p>
+                            @endif
                         </div>
                         </div>
                   </div>

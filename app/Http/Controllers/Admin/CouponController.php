@@ -109,7 +109,8 @@ class CouponController extends Controller
             $module->save();
         }
 
-        return redirect('/admin/coupons/index')->with('success','Record Created Success'); 
+
+        return redirect('/admin/coupons/create?store_id='.$module->store_id.'&type='.$request->type)->with('success','Record Created Success'); 
     }
 
 

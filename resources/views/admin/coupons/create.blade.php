@@ -66,9 +66,9 @@
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Type</label>
                                 <select name="type" class="type form-control form-control-lg mb-2">
-                                    <option @if(old('type') == 'code') selected @endif
+                                    <option @if(request()->type == 'code') selected @endif
                                         value="code">Code</option>
-                                    <option @if(old('type') == 'active') selected @endif value="active">Active</option>
+                                    <option @if(request()->type == 'active') selected @endif value="active">Active</option>
                                 </select>
                                 @if($errors->has('type'))
                                       <p class="error" >{{ $errors->first('type') }}</p>
@@ -91,11 +91,13 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Select Store</label>
+                                {{request()->store_id}}
                                 <select name="store_id" class="store_id form-control form-control-lg mb-2">
                                    @foreach ($stores as $store)
                                    <option data-id="{{$store->direct_url}}"
-                                   @if(Crypt::encryptString(old('store_id')) == $store->id)
+                                    @if(request()->store_id == $store->id)
                                    selected @endif
+
                                    value="{{Crypt::encryptString($store->id)}}"
                                    >{{$store->title}}</option>
                                    @endforeach
