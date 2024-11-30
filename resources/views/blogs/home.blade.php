@@ -67,9 +67,9 @@ $bg = asset('admin/uploads/'.$global_d['blog_banner']);
 @section('content')
 
 <div class="slider">
-    @foreach ($blogs->where('featured3',1) as $blog)
+    @foreach ($blogs->where('featured4',1) as $blog)
         <div style="position: relative" >
-            <div style="min-height: 300px;background:url({{asset('admin/uploads/'.$global_d['blog_banner'])}})" > 
+            <div style="min-height: 300px;background:url({{asset('admin/uploads/'.$blog->image)}})" > 
             </div>
             <h3 class="slider-title" >
                 <a href="{{URL::to('/blogs/'.$blog->slug)}}">{{$blog->title}}</a>
