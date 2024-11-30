@@ -9,7 +9,7 @@
 @endphp
 
 @section('metatags')
-  <title>{{$global_d['store_meta_tags'] ?? ''}}</title>
+  <title>{{$global_d['store_meta_title'] ?? ''}}</title>
   <meta name="description" content="{{$global_d['store_meta_description'] ?? ''}}">
   <meta name="keywords" content="{{$global_d['store_keywords'] ?? ''}}">
 @endsection

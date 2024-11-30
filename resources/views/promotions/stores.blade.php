@@ -12,7 +12,7 @@
 @endphp
 
 @section('metatags')
-    <title>{{$global_d['store_meta_tags'] ?? ''}}</title>
+    <title>{{$global_d['store_meta_title'] ?? ''}}</title>
     <meta name="description" content="{{$global_d['store_meta_description'] ?? ''}}">
     <meta name="keywords" content="{{$global_d['store_keywords'] ?? ''}}">
 @endsection
@@ -120,6 +120,9 @@
                             <a>STORE WITH ALPHABATICAL ({{$char}})</a>
                             </li>
                             @if(count($result) > 0)
+                            <?php 
+                            //   dd($result);
+                            ?>
                             @foreach ($result  as $item)
                                 <li class="normal" >
                                     <a href="{{URL::to('/promotions/stores/')}}/{{$item->slug}}">{{$item->title}}</a>

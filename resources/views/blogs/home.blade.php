@@ -7,7 +7,7 @@ $bg = asset('admin/uploads/'.$global_d['blog_banner']);
 @endphp
 
 @section('metatags')
-    <title>{{$global_d['blog_meta_tags'] ?? ''}}</title>
+    <title>{{$global_d['blog_meta_title'] ?? ''}}</title>
     <meta name="description" content="{{$global_d['blog_meta_description'] ?? ''}}">
     <meta name="keywords" content="{{$global_d['blog_keywords'] ?? ''}}">
 @endsection
@@ -25,40 +25,29 @@ $bg = asset('admin/uploads/'.$global_d['blog_banner']);
     }
 
 
-        .slider {
-            /* width: 80%; */
-            /* margin: 0 auto; */
-        }
-/* 
-        .slick-slide img {
-            width: 100%;
-            border-radius: 10px;
-        }
-
-        .slick-prev, .slick-next {
-            font-size: 30px;
-            color: #333;
-            z-index: 1;
-        }
-
-        .slick-prev:hover, .slick-next:hover {
-            color: #007BFF;
-        }
-
-        .slick-dots li button:before {
-            color: #333;
-        }
-
-        .slick-dots li.slick-active button:before {
-            color: #007BFF;
-        } */
-
         .slider-title{
             position: absolute;
             top: 130px;
             width: 100%;
             text-align: center;
             color: white;
+        }
+/* 
+        .clearfix:after {
+        visibility: hidden;
+        display: block;
+        font-size: 0;
+        content: " ";
+        clear: both;
+        height: 0;
+        }
+        .clearfix { display: inline-block; }
+        * html .clearfix { height: 1%; }
+        .clearfix { display: block; } */
+
+
+        .latest_page_box{
+            /* height: 300px; */
         }
 
 </style>
@@ -67,9 +56,9 @@ $bg = asset('admin/uploads/'.$global_d['blog_banner']);
 @section('content')
 
 <div class="slider">
-    @foreach ($blogs->where('featured4',1) as $blog)
+    @foreach ($blogs->where('featured4',1) as $index => $blog)
         <div style="position: relative" >
-            <div style="min-height: 300px;background:url({{asset('admin/uploads/'.$blog->image)}})" > 
+            <div style="min-height: 300px;background:url({{asset('admin/uploads/'.$blog->banner)}})" > 
             </div>
             <h3 class="slider-title" >
                 <a href="{{URL::to('/blogs/'.$blog->slug)}}">{{$blog->title}}</a>
@@ -89,7 +78,7 @@ $bg = asset('admin/uploads/'.$global_d['blog_banner']);
             </div>
         </div>
         <div class="row">
-            @foreach ($blogs->where('featured1',1) as $blog)
+            @foreach ($blogs->where('featured1',1) as $index => $blog)
                 <div class="col-md-4">
                     <div class="latest_page_box">
                         <div class="news_image">
@@ -99,12 +88,15 @@ $bg = asset('admin/uploads/'.$global_d['blog_banner']);
                             </div>
                         </div>
                         <div class="news_padding">
-                            <h3>{{$blog->title}}</h3>
-                            <p>{{substr($blog->short_des, 0,50)}}..</p> <br>
+                            <h3>{{$blog->title}}..</h3>
+                            <p>{{$blog->short_des}}</p> <br>
                             <a class="d-block btn_fill" href="{{URL::to('/blogs/'.$blog->slug)}}">Read More</a>
                         </div>
                     </div>
                 </div>
+                @if (($index + 1) % 3 == 0)
+                  <div class="clearfix"></div>
+                @endif
             @endforeach
         </div>
 
@@ -117,7 +109,7 @@ $bg = asset('admin/uploads/'.$global_d['blog_banner']);
           </div>
       </div>
       <div class="row">
-          @foreach ($blogs->where('featured2',1) as $blog)
+          @foreach ($blogs->where('featured2',1) as $index => $blog)
               <div class="col-md-4 ">
                   <div class="latest_page_box">
                       <div class="news_image">
@@ -127,12 +119,16 @@ $bg = asset('admin/uploads/'.$global_d['blog_banner']);
                           </div>
                       </div>
                       <div class="news_padding">
-                          <h3>{{$blog->title}}</h3>
+                          <h3>{{substr($blog->title,0,25)}}..</h3>
                           <p>{{substr($blog->short_des, 0,50)}}..</p> <br>
                           <a class="d-block btn_fill" href="{{URL::to('/blogs/'.$blog->slug)}}">Read More</a>
                       </div>
                   </div>
               </div>
+
+              @if (($index + 1) % 3 == 0)
+            <div class="clearfix"></div>
+            @endif
           @endforeach
       </div>
 
@@ -144,9 +140,12 @@ $bg = asset('admin/uploads/'.$global_d['blog_banner']);
             <div class="line_3"></div>
         </div>
     </div>
-    <div class="row">
-        @foreach ($blogs->where('featured3',1) as $blog)
-            <div class="col-md-4 ">
+   
+    <div class="container-fluid" >
+    
+    <div class="row ">
+        @foreach ($blogs->where('featured3',1)  as $index => $blog)
+            <div  class="col-md-4 ">
                 <div class="latest_page_box">
                     <div class="news_image">
                         <img src="{{asset('/admin/uploads/'.$blog->image)}}" />
@@ -155,13 +154,19 @@ $bg = asset('admin/uploads/'.$global_d['blog_banner']);
                         </div>
                     </div>
                     <div class="news_padding">
-                        <h3>{{$blog->title}}</h3>
-                        <p>{{substr($blog->short_des, 0,50)}}..</p> <br>
+                        <h3>{{substr($blog->title,0,25)}} ..</h3>
+                        <p>{{substr($blog->short_des, 0,50)}} ..</p> <br>
                         <a class="d-block btn_fill" href="{{URL::to('/blogs/'.$blog->slug)}}">Read More</a>
                     </div>
                 </div>
             </div>
+
+            @if (($index + 1) % 3 == 0)
+            <div class="clearfix"></div>
+            @endif
+
         @endforeach
+    </div>
     </div>
   
 

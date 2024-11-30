@@ -6710,7 +6710,7 @@ a.close-overlay.hidden {
     display: inline-block;
     font-size: 16px;
     padding-bottom: 15px;
-    text-align: justify;
+    text-align: left;
 }
 .news_padding {
     padding: 20px 25px 25px;

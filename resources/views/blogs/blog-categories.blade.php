@@ -82,7 +82,7 @@
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="row">
 
-                @foreach ($blogs as $item)
+                @foreach ($blogs as $index => $item)
                 <div class="col-md-4">
                     <div class="latest_page_box">
                         <div class="news_image">
@@ -98,6 +98,9 @@
                         </div>
                     </div>
                 </div>
+                @if (($index + 1) % 3 == 0)
+                  <div class="clearfix"></div>
+                @endif
                 @endforeach
             </div>
 

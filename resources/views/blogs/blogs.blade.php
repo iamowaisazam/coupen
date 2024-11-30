@@ -4,7 +4,7 @@
 
 
 @section('metatags')
-  <title>{{$global_d['blog_meta_tags'] ?? ''}}</title>
+  <title>{{$global_d['blog_meta_title'] ?? ''}}</title>
   <meta name="description" content="{{$global_d['blog_meta_description'] ?? ''}}">
   <meta name="keywords" content="{{$global_d['blog_keywords'] ?? ''}}">
 @endsection
@@ -90,7 +90,7 @@ news-section-details property-details padding_top">
   <div class="container">
 
             <div class="row">
-                @foreach ($blogs as $item)
+                @foreach ($blogs as $index => $item)
                 <div class="col-md-4">
                     <div class="latest_page_box">
                         <div class="news_image">
@@ -106,6 +106,9 @@ news-section-details property-details padding_top">
                         </div>
                     </div>
                 </div>
+                @if (($index + 1) % 3 == 0)
+                  <div class="clearfix"></div>
+                @endif
                 @endforeach
                 <div class="col-md-12">
                     <div class="paginate text-center">

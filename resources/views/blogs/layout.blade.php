@@ -32,6 +32,16 @@
           margin-left: auto;
           margin-right: auto;
         }
+
+        .tag_red{
+          background: #f8ea28!important;
+        }
+
+        .btn_fill{
+          background: #FE0000!important;
+        }
+
+        
     </style>
 
 </head>
