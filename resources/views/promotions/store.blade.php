@@ -300,7 +300,10 @@
                                   </div>
                                 </div>
                               </a>
-                              <p style="padding: 11px 0px;" class="card-coupon-p small">expires: {{$coupon->expiry}}</p>
+                              @if($coupon->expiry)
+                              <p style="padding: 11px 0px;" class="card-coupon-p small">expires: 
+                                {{$coupon->expiry}}</p>
+                              @endif
                           
                           </div>    
 
