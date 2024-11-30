@@ -248,15 +248,17 @@ class BlogController extends Controller
         if($module == false){
             return back()->with('warning','Record Not Found');
         }else{
+           
+
+            if (file_exists(public_path('admin/uploads/'.$module->banner))) {
+                unlink(public_path('admin/uploads/'.$module->banner));
+            } 
+
+            if (file_exists(public_path('admin/uploads/'.$module->image))) {
+                unlink(public_path('admin/uploads/'.$module->image));
+            } 
+
             $module->delete();
-
-            if (file_exists(public_path('admin/uploads/'.$module[0]->banner))) {
-                unlink(public_path('admin/uploads/'.$module[0]->banner));
-            } 
-
-            if (file_exists(public_path('admin/uploads/'.$module[0]->image))) {
-                unlink(public_path('admin/uploads/'.$module[0]->image));
-            } 
 
             return redirect('/admin/blogs/index')->with('success','Record Deleted Success'); 
         }

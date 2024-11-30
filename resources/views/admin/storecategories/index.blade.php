@@ -32,7 +32,7 @@
                 <table  class="display table table-bordered table-striped" id="dynamic-table">
                 <thead>
                     <tr>
-                        <th class="hidden-phone">Action</th>
+                        <th class="">Action</th>
                         <th>ID</th>
                         <th>Image</th>
                         <th>Title</th>
@@ -45,7 +45,7 @@
                         @foreach ($data as $item)
                         <tr class="gradeA">
 
-                            <td class="center hidden-phone">
+                            <td class="center ">
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-sm btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Action

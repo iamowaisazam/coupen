@@ -86,6 +86,7 @@ class HomeController extends Controller
         ->where('featured1',1)
         ->orWhere('featured2',1)
         ->orWhere('featured3',1)
+        ->orWhere('featured4',1)
         ->get();
        
         return view('blogs.home',compact('blogs'));

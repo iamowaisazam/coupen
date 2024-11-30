@@ -12,6 +12,7 @@ use App\Models\Coupon;
 
 use Carbon\Carbon;
 use Auth;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Validation\Rule;
 
@@ -47,9 +48,27 @@ class CouponController extends Controller
         if($request->has('store') && $request->store != ''){
             $data = $data->where('coupons.store_id',$request->store);
         }
-
         $data = $data->get();
-        return view('admin.coupons.index',compact('data','stores'));
+
+
+        $data = [
+            'data' => $data,
+            'stores' => $stores
+        ];
+
+        if($request->id){
+            $module = Coupon::find(Crypt::decryptString($request->id));
+            if($module != false){       
+                $data['form'] = Blade::render('admin.coupons.modal',[
+                    'module' => $module,
+                    'stores' => $stores
+                ]);
+            }
+        }
+
+
+        return view('admin.coupons.index',$data);
+
     }
 
     
@@ -248,6 +267,19 @@ class CouponController extends Controller
             }
         }
         return back()->with('success','Record Updated');
+        
+    }
+
+      /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function delete_all(Request $request)
+    {
+           
+         Coupon::select('*')->delete();
+         return back()->with('success','Record Updated');
         
     }
 

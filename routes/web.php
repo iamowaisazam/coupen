@@ -97,6 +97,8 @@ Route::get('/admin/coupons/view/{id}', [App\Http\Controllers\Admin\CouponControl
 Route::get('/admin/coupons/status/{id}', [App\Http\Controllers\Admin\CouponController::class, 'status']);
 Route::get('/admin/coupons/sort', [App\Http\Controllers\Admin\CouponController::class, 'sort']);
 Route::post('/admin/coupons/sort_update', [App\Http\Controllers\Admin\CouponController::class, 'sort_update']);
+Route::get('/admin/coupons/delete_all', [App\Http\Controllers\Admin\CouponController::class, 'delete_all']);
+
 
 //Blogs
 Route::get('/admin/blogs/index', [App\Http\Controllers\Admin\BlogController::class, 'index']);

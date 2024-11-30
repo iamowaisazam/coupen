@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <link rel="stylesheet" type="text/css" href="{{asset('web/css/master.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('web/css/color/color-1.css')}}" id="color" />
-    <link rel="shortcut icon" href="{{asset('web/images/short_icon.png')}}">
+    <link rel="shortcut icon" href="{{asset('/admin/uploads/'.$global_d['fav_icon'] ?? '')}}">
 
     @yield('css')
 
@@ -101,7 +101,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-2 hidden-xs hidden-sm"><a href="{{URL::to('/')}}">
-          <img src="{{asset('web/images/logo-white.png')}}" alt="logo"></a></div>
+          <img src="{{asset('/admin/uploads/'.$global_d['logo'] ?? '')}}" alt="logo"></a></div>
         <div class="col-md-10 col-sm-12 col-xs-12">
           <div class="get-tuch text-left top20">
             {{-- <i class="icon-telephone114"></i> --}}

@@ -10,7 +10,7 @@
     
     <link rel="stylesheet" type="text/css" href="{{asset('web/css/master.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('web/css/color/color-1.css')}}" id="color" />
-    <link rel="shortcut icon" href="{{asset('web/images/short_icon.png')}}">
+    <link rel="shortcut icon" href="{{asset('/admin/uploads/'.$global_d['fav_icon'] ?? '')}}">
 
     @yield('css')
 
@@ -44,24 +44,8 @@
     <div class="container">
       <div class="row">
         <div class="col-md-2 hidden-xs hidden-sm"><a href="{{URL::to('/')}}">
-          <img src="{{asset('web/images/logo-white.png')}}" alt="logo"></a></div>
+          <img src="{{asset('/admin/uploads/'.$global_d['logo'] ?? '')}}" alt="logo"></a></div>
         <div class="col-md-10 col-sm-12 col-xs-12">
-          {{-- <div class="get-tuch text-left top20">
-            <i class="icon-telephone114"></i>
-            <ul>
-              <li><h4>Phone Number</h4></li>
-              <li><p>{{$global_d['phone_number'] ?? ''}}</p></li>
-            </ul>
-          </div> --}}
-          {{-- <div class="get-tech-line top20"><img src="{{asset('web/images/get-tuch-line.png')}}" alt="line"></div>
-          <div class="get-tech-line top20"><img src="{{asset('web/images/get-tuch-line.png')}}" alt="line"></div> --}}
-          {{-- <div class="get-tuch text-left top20">
-            <i class=" icon-icons142"></i>
-            <ul>
-              <li><h4>Email Address</h4></li>
-              <li><p><a href="#">{{$global_d['email_address'] ?? ''}}</a></p></li>
-            </ul>
-          </div> --}}
         </div>
       </div>
     </div>

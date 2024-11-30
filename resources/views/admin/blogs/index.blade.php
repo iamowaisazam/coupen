@@ -67,19 +67,20 @@
                 <table  class="display table table-bordered table-striped" id="dynamic-table">
                 <thead>
                     <tr>
-                        <th class="hidden-phone">Action</th>
+                        <th class="">Action</th>
                         <th>Image</th>
                         <th>Title</th>
                         <th>Category</th>
                         <th>SAVE SUM MORE</th>
                         <th>Featured</th>
                         <th>POPULAR</th>
+                        <th>SLIDER</th>
                     </tr>
                 </thead>
                 <tbody>
                         @foreach ($data as $item)
                         <tr class="gradeA">
-                            <td class="center hidden-phone">
+                            <td class="center ">
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-sm btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action</button>
                                     <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 31px, 0px);">
@@ -127,6 +128,17 @@
                                     data-toggle="toggle" 
                                     data-size="sm">
                             </td>
+                            <td>
+                                <input @if($item->featured4)checked @endif 
+                                    data-url="{{URL::to('admin/status')}}"
+                                    data-id="{{Crypt::encryptString($item->id)}}"
+                                    data-table="blogs" 
+                                    data-column="featured4" 
+                                    type="checkbox" 
+                                    class="status_change" 
+                                    data-toggle="toggle" 
+                                    data-size="sm">
+                            </td>
                         </tr>
                         @endforeach
                     </tbody>
@@ -136,6 +148,10 @@
           </section>
          </div>
        </div>
+
+
+
+
 @endsection
  @section('js')
 

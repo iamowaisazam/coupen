@@ -69,30 +69,23 @@
                     <div class="news_image">
                         <a href="{{URL::to('/promotions/stores/')}}/{{$item->slug}}">
                         <img class="img-fluid" alt="{{$item->alt}}" src="{{asset('admin/uploads/'.$item->image)}}">
-                        <div class="price">
-                            <span class="tag_red">Coupon</span>
-                        </div>
                        </a>
                     </div>
                     <div class="news_padding">
-                        <h3><a href="{{URL::to('/promotions/stores/')}}/{{$item->slug}}"> {{$item->offer_name}} </a> </h3>
-                        <p>
-                            <span style="color: rgb(121, 121, 121);">Expires On :</span>
-                            <span>{{$item->expiry}}</span>
-                        </p>
+                        <h3><a href="{{URL::to('/promotions/stores/')}}/{{$item->slug}}"> {{$item->title}} </a> </h3>
                          <br>
-                         <div  class="text-center">
+                         {{-- <div  class="text-center">
                             <a style="cursor: pointer" data-link="{{$item->tracking_link}}" 
-                            data-toggle="modal" data-target="#myModal{{$item->id}}" class="redirect_link d-block btn_fill" >Active</a>
-                         </div>
+                            data-toggle="modal" data-target="#myModal{{$item->id}}" class="redirect_link d-block btn_fill" >View</a>
+                         </div> --}}
                         
                     </div>
                 </div>
                 
             </div>
 
-            @component('promotions.components.coupen',['data' => $item]) @endcomponent
             @endforeach
+
         </div>
     </div>
    

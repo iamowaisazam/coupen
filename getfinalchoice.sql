@@ -238,7 +238,7 @@ CREATE TABLE `settings` (
   `id` int(11) NOT NULL,
   `field` text NOT NULL,
   `value` text DEFAULT NULL,
-  `type` text NOT NULL DEFAULT 'text',
+  `type` text DEFAULT NULL,
   `sort` int(11) NOT NULL DEFAULT 0,
   `grouping` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;

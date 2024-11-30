@@ -198,11 +198,7 @@
               @endforeach   
            
 
-            <div class="col-md-12">
-              <div style="padding: 30px 0px" class="paginate text-center">
-                {{ $coupons->links('pagination.custom') }}
-            </div>
-            </div>
+       
         </div>
 
 

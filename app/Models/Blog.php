@@ -31,6 +31,7 @@ class Blog extends Model
         'sort',
         'banner_alt',
         'alt',
+        'featured4',
     ];
 
 

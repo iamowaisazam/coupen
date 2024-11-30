@@ -49,14 +49,16 @@ class PromotionController extends Controller
         //     return back();
         // }
 
-        $data = Coupon::select([
-            'coupons.*',
-            'stores.slug',
-            'stores.title',
-            'stores.image'
-        ])
-        ->join('stores','stores.id','=','coupons.store_id')
-        ->get();
+        // $data = Coupon::select([
+        //     'coupons.*',
+        //     'stores.slug',
+        //     'stores.title',
+        //     'stores.image'
+        // ])
+        // ->join('stores','stores.id','=','coupons.store_id')
+        // ->get();
+
+        $data = Store::select('*')->get();
         
         return view('promotions.index',compact('data'));
     }
@@ -132,8 +134,7 @@ class PromotionController extends Controller
         ])
         ->join('stores','stores.id','=','coupons.store_id')
         ->where('coupons.store_id',$data->id)
-        ->orderBy('coupons.sort')
-        ->paginate(6);
+        ->orderBy('coupons.sort')->get();
         
         return view('promotions.store',compact('data','related','coupons'));
 
