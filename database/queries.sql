@@ -25,3 +25,8 @@ ALTER TABLE `coupons` ADD `alt` TEXT NULL DEFAULT NULL AFTER `sort`;
 -- __________________________________________________________________________________
 ALTER TABLE `stores` ADD `views` INT NULL DEFAULT '0' AFTER `alt`;
 
+
+
+
+--- 11/30/2024
+ALTER TABLE `blogs` ADD `featured4` INT NOT NULL DEFAULT '0' AFTER `featured3`;
