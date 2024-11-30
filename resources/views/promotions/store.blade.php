@@ -42,8 +42,10 @@
 @section('css')
   <style>
 .image_popup {
-    height: 10%;
-    width: 65%;
+    /* height: 10%; */
+    /* width: 65%; */
+    max-width: 300px;
+    height: 300px;
     padding-bottom:20px; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /
     border-radius: 8px;
@@ -82,10 +84,10 @@
       }
 
 
-      .coupon_box .image{
+      /* .coupon_box .image{
         width: 300px;
         height: 200px;
-      }
+      } */
 
       .property_item{
         display: flex;
@@ -128,6 +130,100 @@
 
 
       }
+
+      .store_coupon{
+        padding: 0px 30px;
+      }
+
+      @media (min-width: 990px) {
+        .store_coupon .card-flex {
+              justify-content: center;
+              gap: 5.5rem !important;
+          }
+      }
+      .store_coupon .card-image {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+      }
+      .store_coupon .card-text {
+          flex-direction: column !important;
+          display: flex;
+          justify-content: center !important;
+          max-width: 350px;
+          width: 100%;
+      }
+      
+      .store_coupon .coup_btn {
+          color: rgba(33, 37, 41);
+          text-decoration: none;
+          width: 100%;
+          position: relative;
+      }
+      .store_coupon .coupon_custom_btn {
+          display: block;
+          position: relative;
+          text-align: center;
+      }
+      .store_coupon .coupon_custom_btn>div {
+          border: #000 2px dashed;
+          height: 45px;
+      }
+     .store_coupon .coupon-div-btn {
+          text-transform: uppercase;
+          text-align: right !important;
+          font-weight: 700 !important;
+          font-size: 13px !important;
+          padding-right: 0.5rem !important;
+          padding-left: 0.5rem !important;
+          width: 100% !important;
+      }
+      .store_coupon .coupons_custom_btn {
+          height: 45px;
+          width: 100% !important;
+          right: 0 !important;
+          top: 0 !important;
+          position: absolute !important;
+          display: block !important;
+          overflow: hidden !important;
+      }
+    .store_coupon .position-absolute {
+          position: absolute;
+          top: 0 !important;
+          overflow: hidden !important;
+      }
+    .store_coupon  .coupons_custom_btn>div {
+          left: -7px;
+          height: 45px;
+          width: 97%;
+          transition: width .3s ease-in-out;
+      }
+    .store_coupon  .coupons_custom_btn>div>button {
+          width: 95%;
+          transform: skew(-20deg, 0deg);
+          transition: background-color .3s;
+      }
+    .store_coupon  .card-btn {
+          background: linear-gradient(45deg, black, #d52984);
+          color: rgba(255, 255, 255);
+          text-transform: uppercase !important;
+          text-align: center !important;
+          font-weight: 700 !important;
+          padding-left: 1rem !important;
+          padding: 0.25rem !important;
+          align-items: center !important;
+          justify-content: center !important;
+          height: 100% !important;
+          border: 0 !important;
+          display: flex !important;
+      }
+    .store_coupon  .coupons_custom_btn>div>button>span {
+          transform: skew(20deg, 0deg);
+      }
+    .store_coupon  .coupons_custom_btn>div:hover {
+          width: 70%;
+      }
+
   </style>
 @endsection
 @section('content')
@@ -165,29 +261,64 @@
   <section id="news-section-1" class="bg-color-gray coupon_box property-details padding_top">
     <div class="container">
       <div class="row">
-
         <div class="col-md-9 col-sm-12 col-xs-12">
-           
+
               @foreach ($coupons as $coupon)
               <div class="row">
                 <div class="col-sm-12">
 
-                  <div class="property_item heading_space">
+                  <div style="background-color: #e2e3e5 !important;" class="property_item heading_space">
                         <div class="image">
                           <img style="width:100%" src="{{asset('admin/uploads/'.$data->image)}}" alt="listin" class="img-responsive">   
                         </div>
-                        <div class="proerty_content">
-                          <div class="proerty_text">
+                        <div class="proerty_content" >
+
+                          <div class="store_coupon ">
+                            
+                              <div style="padding: 11px 0px;">
+                                  <a class="text-coupon text-dark">
+                                    <p>{{$coupon->offer_name}}</p>
+                                  </a>
+                              </div>
+                                <a class="coup_btn redirect_link favroute clearfix" data-link="{{$coupon->tracking_link}}" data-toggle="modal" data-target="#myModal{{$coupon->id}}" data-code="{{ $coupon->code }}" >
+                                <div class="coupon_custom_btn" id="s129091">
+                                    <div class="coupon-div-btn">
+                                       <p>ENJOY40</p>
+                                      </div>
+                                </div>
+                                <div class="coupons_custom_btn small">
+                                  <div class="position-absolute">
+                                    <button class="card-btn small">
+                                      <span class="fw-bold my-auto">
+                                        @if($coupon->type == 'code')
+                                          Copy Code &amp; visit Store
+                                        @else
+                                          Get Offer
+                                        @endif
+                                      </span>
+                                    </button>
+                                  </div>
+                                </div>
+                              </a>
+                              <p style="padding: 11px 0px;" class="card-coupon-p small">expires: {{$coupon->expiry}}</p>
+                          
+                          </div>    
+
+
+                          {{-- <div class="proerty_text">
                             <h3><a>{{$coupon->offer_name}}</a></h3>
                             <span class="bottom10">Expiry Date: {{$coupon->expiry}}</span>
                           </div>
+
                           <div data-link="{{$coupon->tracking_link}}" data-toggle="modal" data-target="#myModal{{$coupon->id}}" data-code="{{ $coupon->code }}" class="redirect_link favroute clearfix" style="cursor: pointer;background-color: #ed2a28;">
                             @if($coupon->type == 'code')
                               <p class="pull-left" style="color:#fff; font-size: 16px; font-weight: 700;">Copy Code &amp; visit Store </p>
                             @else
                               <p class="pull-left" style="color:#fff; font-size: 16px; font-weight: 700;">Get Offer</p>
                             @endif
-                        </div>
+                        </div> --}}
+
+
                         </div>
                   </div>
 
