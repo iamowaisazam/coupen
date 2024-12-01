@@ -283,7 +283,7 @@
                                 <a class="coup_btn redirect_link favroute clearfix" data-link="{{$coupon->tracking_link}}" data-toggle="modal" data-target="#myModal{{$coupon->id}}" data-code="{{ $coupon->code }}" >
                                 <div class="coupon_custom_btn" id="s129091">
                                     <div class="coupon-div-btn">
-                                       <p>ENJOY40</p>
+                                       <p></p>
                                       </div>
                                 </div>
                                 <div class="coupons_custom_btn small">
@@ -302,26 +302,10 @@
                               </a>
                               @if($coupon->expiry)
                               <p style="padding: 11px 0px;" class="card-coupon-p small">expires: 
-                                {{$coupon->expiry}}</p>
+                                {{ date("d-m-Y", strtotime($coupon->expiry))}}</p>
                               @endif
                           
                           </div>    
-
-
-                          {{-- <div class="proerty_text">
-                            <h3><a>{{$coupon->offer_name}}</a></h3>
-                            <span class="bottom10">Expiry Date: {{$coupon->expiry}}</span>
-                          </div>
-
-                          <div data-link="{{$coupon->tracking_link}}" data-toggle="modal" data-target="#myModal{{$coupon->id}}" data-code="{{ $coupon->code }}" class="redirect_link favroute clearfix" style="cursor: pointer;background-color: #ed2a28;">
-                            @if($coupon->type == 'code')
-                              <p class="pull-left" style="color:#fff; font-size: 16px; font-weight: 700;">Copy Code &amp; visit Store </p>
-                            @else
-                              <p class="pull-left" style="color:#fff; font-size: 16px; font-weight: 700;">Get Offer</p>
-                            @endif
-                        </div> --}}
-
-
                         </div>
                   </div>
 

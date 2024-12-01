@@ -167,11 +167,20 @@ $bg = asset('admin/uploads/'.$global_d['blog_banner']);
 
         @endforeach
     </div>
+
+    <div class="row">
+        <div class="col-md-12 bottom40" style="margin-top: 40px;">
+            <h2 class="text-uppercase">Advertise With Us</h2>
+            <div class="line_1"></div>
+            <div class="line_2"></div>
+            <div class="line_3"></div>
+        </div>
+        <div class="col-md-12" style="padding-bottom: 20px" >
+            <img style="width: 100%" src="{{asset('/banner.png')}}" />
+        </div>
     </div>
-  
-
-      
-
+    
+    </div>
   </div>
 </section>
 @endsection
